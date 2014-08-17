@@ -9,10 +9,11 @@ header, footer {
 #content {
   @include grid-row();
 
-  $left-column-size: 6;
+  $left-column-size: 7;
   $right-column-size: 12 - $left-column-size;
   .left-column {
     @include grid-column($left-column-size);
+    padding-left: 35px;
   }
   .right-column {
     @include grid-column($right-column-size);

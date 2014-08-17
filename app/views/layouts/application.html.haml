@@ -14,33 +14,40 @@
     / <meta http-equiv="X-UA-Compatible" content="IE=7" />
     / Set the viewport width to device width for mobile
     %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %script{src: "//use.typekit.net/dbw2ynz.js", type: "text/javascript"}
+    :javascript
+      try{Typekit.load();}catch(e){}
     = csrf_meta_tags
   %body
-    %ul#devise_navigation
-      - if user_signed_in?
-        %li
-          You are signed in as
-          = link_to(current_user.full_name, main_app.user_path(current_user))
-        %li= link_to('sign out', destroy_user_session_path, method: :delete)
-      - else
-        %li= link_to("sign in", new_user_session_path)
-        %li= link_to("sign up", new_user_registration_path)
-    %header
-      %h1= image_tag "savings-multiplied-logo.png"
-      %ul#page_navigation
-        %li= link_to "About", "/pages/about"
-        %li= link_to "Contact", "/pages/contact"
-        %li= link_to "Blog", "/pages/blog"
-        %li= link_to "Press", "/pages/press"
-      %h2 where parents of multiples save, sell &amp; share
+    #top
+      %ul#device-navigation
+        - if user_signed_in?
+          %li
+            You are signed in as
+            = link_to(current_user.full_name, main_app.user_path(current_user))
+          %li= link_to('sign out', destroy_user_session_path, method: :delete)
+        - else
+          %li= link_to("sign in", new_user_session_path)
+          |
+          %li= link_to("sign up", new_user_registration_path)
+      %header.header-container
+        %h1#logo= image_tag "savings-multiplied-logo.png"
+        .nav-container
+          %ul#page_navigation
+            %li= link_to "About", "/pages/about"
+            %li= link_to "Contact", "/pages/contact"
+            %li= link_to "Blog", "/pages/blog"
+            %li= link_to "Press", "/pages/press"
+          %h2.header-subtitle where parents of multiples save, sell &amp; share
+    #belt
       %ul#main_navigation
         %li= link_to "Buy", auctions_path
         %li= link_to "Sell", new_auction_path
         %li= link_to "How it Works", "/pages/howitworks"
         %li= link_to "Links", "/pages/links"
         %li= link_to "Community", "/pages/community"
-        %li= render partial: "auction_searches/search_term_form"
-    #content
+        %li#main-search= render partial: "auction_searches/search_term_form"
+    #content  
       .notice= notice
       .alert= alert
       = yield
