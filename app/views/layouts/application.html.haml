@@ -47,12 +47,12 @@
         %li= link_to "Links", "/pages/links"
         %li= link_to "Community", "/pages/community"
         %li#main-search= render partial: "auction_searches/search_term_form"
-    #content  
+    #content
       .notice= notice
       .alert= alert
       = yield
     %footer
-      %ul
+      %ul.footer-navigation
         %li= link_to "Link here", "#"
         %li= link_to "Link here", "#"
         %li= link_to "Link here", "#"

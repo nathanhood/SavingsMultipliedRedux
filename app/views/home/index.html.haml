@@ -1,12 +1,37 @@
 .left-column
   %h2 We're making one aspect of life easier for parents of multiples:
 
+  = image_tag "homepage/owl_44_44.png"
   %h3 buying and selling gently used sets of clothes!
 
-  = link_to "Shop Now!", auctions_path, class: "button primary"
+  #shop-now-container
+    - (1..7).each do |i|
+      = image_tag "homepage/dotted_line_44_36.png"
+    = link_to "Shop Now!", auctions_path, class: "shop-now-button"
+    = image_tag "homepage/dotted_line_44_36.png"
+    = image_tag "homepage/dotted_line_44_36.png"
+
+  %p#home-text Our goal is to take the hassle our of consigning, so listing your items is a piece of cake. Shop from other parents of multiples and find coordinating (or not!) sets of clothes for your kids in a matter of minutes.
+
+  .tree-with-greeting
+    %h2#greeting-header Welcome to Savings Multiplied,
+    =image_tag "homepage/tree.png"
+    %p your new online resource for all things Multiples!
+
 
 .right-column
   #child_images
     = image_tag "children/twins.jpg"
     = image_tag "children/triplets.jpg"
     = image_tag "children/quads.jpg"
+
+.bottom-border
+.bottom-image-row
+  .bottom-image-container
+    = image_tag "homepage/facebook_callout.png"
+  .bottom-image-container
+    = image_tag "homepage/twitter_callout.png"
+  .bottom-image-container
+    = image_tag "homepage/message_board_callout.png"
+  .bottom-image-container
+    = image_tag "homepage/special_offers_callout.png"
